@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'antlr'
+}
+
+group 'org.aero'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    antlr "org.antlr:antlr4:4.9"
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+generateGrammarSource {
+    arguments += ["-visitor"]
+}
+
+test {
+    useJUnitPlatform()
+}
